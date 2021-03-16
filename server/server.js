@@ -72,24 +72,24 @@ app.post('/create-checkout-session', async (req, res) => {
 		payment_method_types: pmTypes,
 		mode: 'payment',
 		locale: req.body.locale,
-		// line_items: [
-		// 	{
-		// 		price: process.env.PRICE,
-		// 		quantity: 1
-		// 	},
-		// ],
 		line_items: [
 			{
-				price_data: {
-					currency: 'usd',
-					product_data: {
-						name: 'T-shirt',
-					},
-					unit_amount: 2000,
-				},
-				quantity: 1,
+				price: process.env.PRICE,
+				quantity: 1
 			},
 		],
+		// line_items: [
+		// 	{
+		// 		price_data: {
+		// 			currency: 'usd',
+		// 			product_data: {
+		// 				name: 'T-shirt',
+		// 			},
+		// 			unit_amount: 2000,
+		// 		},
+		// 		quantity: 1,
+		// 	},
+		// ],
 		// ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
 		success_url: `${domainURL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
 		cancel_url: `${domainURL}/index.html`,

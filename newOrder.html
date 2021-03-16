@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  class="no-js" lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Order</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300;1,400&display=swap"
 		  rel="stylesheet">
-
 	<meta name="theme-color" content="#fafafa">
 </head>
 <body>
@@ -58,7 +57,7 @@
 				<div>
 					<p>Upload a close-up!</p>
 					<label for="image-upload"></label>
-					<input  type="file" id="image-upload" accept="image/*">
+					<input type="file" id="image-upload" accept="image/*">
 				</div>
 				<button id="pay">Pay</button>
 			</form>
@@ -83,22 +82,22 @@
 		});
 	var checkoutButton = document.getElementById('pay');
 
-	checkoutButton.addEventListener('click', function(e) {
+	checkoutButton.addEventListener('click', function (e) {
 		e.preventDefault();
 		// Create a new Checkout Session using the server-side endpoint you
 		// created in step 3.
 		fetch('/create-checkout-session', {
 			method: 'POST',
 		})
-			.then(function(response) {
+			.then(function (response) {
 				return response.json();
 			})
-			.then(function(session) {
+			.then(function (session) {
 				console.log('session', session);
 				console.log('sessionID', session.id);
-				return stripe.redirectToCheckout({ sessionId: session.sessionId });
+				return stripe.redirectToCheckout({sessionId: session.sessionId});
 			})
-			.then(function(result) {
+			.then(function (result) {
 				// If `redirectToCheckout` fails due to a browser or network
 				// error, you should display the localized error message to your
 				// customer using `error.message`.
@@ -106,7 +105,7 @@
 					alert(result.error.message);
 				}
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.error('Error:', error);
 			});
 	});
