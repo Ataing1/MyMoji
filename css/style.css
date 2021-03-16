@@ -55,6 +55,12 @@ li a:hover {
 
 }
 
+/*
+
+INTRO STYLING CSS
+
+*/
+
 .intro-header {
 	margin-bottom: 100px;
 	align-items: center;
@@ -75,9 +81,11 @@ li a:hover {
 .intro-content {
 	display: block;
 	align-items: normal;
+
 	width: 70%;
 	max-width: 1140px;
 	position: static;
+	align-self: center;
 
 }
 
@@ -123,11 +131,19 @@ li a:hover {
 }
 
 .steve-img {
+	flex-shrink: initial;
 	max-width: 40%;
 	height: auto;
+	object-fit: scale-down;
 }
 
-.container{
+/*
+
+INSTRUCTION STYLING
+
+*/
+
+.container {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 100px;
@@ -140,13 +156,13 @@ li a:hover {
 	font-weight: normal;
 }
 
-.blog-heading{
+.blog-heading {
 	margin-bottom: 60px;
 	display: block;
 	position: static;
 }
 
-.work-heading{
+.work-heading {
 	margin-top: 10px;
 	margin-bottom: 20px;
 	font-size: 36px;
@@ -154,7 +170,7 @@ li a:hover {
 	font-weight: bold;
 }
 
-.collection-list-wrapper{
+.collection-list-wrapper {
 	display: block;
 	margin-bottom: 20px;
 	width: auto;
@@ -162,38 +178,35 @@ li a:hover {
 	position: static;
 }
 
-.collection-wrap{
+.collection-wrap {
 	display: flex;
 }
 
-.instruction-wrap{
+.instruction-wrap {
 	flex-shrink: initial;
 	display: block;
 	padding-bottom: 30px;
 	padding-left: 15px;
 	padding-right: 45px;
 	width: 33.33%;
-
 	border-color: black;
-
 }
 
-.instruction-img{
+.instruction-img {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
 	width: 120px;
 	height: auto;
-
 }
 
-.instruction-title{
+.instruction-title {
 	font-weight: bold;
 	font-size: 25px;
 	text-align: center;
 }
 
-.instruction-description{
+.instruction-description {
 	text-align: center;
 	font-weight: bolder;
 }
@@ -213,26 +226,32 @@ li a:hover {
 	margin-left: auto;
 }
 
-.testimonial{
+/*
+
+TESTIMONIAL SECTION CSS
+
+*/
+
+.testimonial {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 17px;
 	font-style: italic;
 }
 
-.testimonial-credit{
+.testimonial-credit {
 	text-align: center;
 	font-weight: bold;
 	font-size: 17px;
 }
 
-.cta-wrap{
+.cta-wrap {
 	display: block;
 	background-color: #b3d4fc;
 
 }
 
-.container-cta{
+.container-cta {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
@@ -244,7 +263,7 @@ li a:hover {
 	font-weight: normal;
 }
 
-.cta{
+.cta {
 	display: block;
 	padding-top: 50px;
 	margin-top: 50px;
@@ -270,6 +289,118 @@ li a:hover {
 	margin-left: auto;
 	margin-bottom: 100px;
 }
+
+#checkout-button {
+	display: block;
+	background-color: dodgerblue;
+	color: white;
+	align-items: center;
+	padding: 16px 35px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 40px;
+	outline: none;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 100px;
+}
+/*
+
+	NEW ORDER CSS
+
+*/
+
+.order-wrapper{
+	font-family: 'Montserrat', sans-serif;
+	padding: 45px 50px  50px;
+}
+
+.order-heading-wrap{
+	margin-bottom: 40px;
+}
+
+#order-header-pt1{
+	text-align: center;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+#order-header-pt2{
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+#order-header-pt3{
+	text-align: center;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+.order-form{
+	display: flex;
+	flex-direction: column;
+	align-content: stretch;
+	justify-content: start;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.order-form-inner-wrapper{
+	align-content: stretch;
+	justify-content: start;
+}
+
+.label{
+	margin-bottom: 25px;
+}
+
+.text-field{
+	width: 100%;
+	display: block;
+	padding: 12px 8px;
+	margin-bottom: 25px;
+	font-size: 14px;
+	border-width: 2px;
+	border-radius: 20px;
+	border-color: #e4e4e4;
+	outline: none;
+}
+
+#image-upload{
+	display: block;
+	background-color: gray;
+	color: white;
+	text-align: center;
+	align-items: center;
+	padding: 16px 35px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 40px;
+	outline: none;
+	margin-bottom: 25px;
+
+}
+
+#pay{
+	display: block;
+	background-color: dodgerblue;
+	color: white;
+	align-items: center;
+	padding: 16px 35px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 40px;
+	outline: none;
+	margin-bottom: 25px;
+}
+
+
+
+
 
 
 

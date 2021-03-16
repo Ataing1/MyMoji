@@ -22,7 +22,7 @@
 	<!--	navigation wrap-->
 	<div class="navigation-wrap">
 		<!--		logo link-->
-		<a href="index.html" class="logo">
+		<a href="/" class="logo">
 			<img class="logo-image" src="img/Logo@2x.png" alt="LOGO"/>
 		</a>
 		<!--		navigation items-->
@@ -33,6 +33,84 @@
 		</ul>
 	</div>
 </nav>
+
+<section class="section">
+	<div class="container">
+		<div class="order-wrapper">
+			<div class="order-heading-wrap">
+				<p id="order-header-pt1">Custom Emoji, only $15</p>
+				<p id="order-header-pt2">Enter your MyMoji Details</p>
+				<p id="order-header-pt3">We will email you when the MyMoji is ready</p>
+			</div>
+			<form class="order-form">
+				<div class="order-form-inner-wrapper">
+					<label for="order-name"></label>
+					<input id="order-name" type="text" class="text-field" placeholder="Name">
+					<label for="order-email"></label>
+					<input id="order-email" type="text" class="text-field" placeholder="Email">
+					<p>What would you like us to know when making your MyMoji</p>
+					<label class="label" for="other-information"></label>
+					<textarea id="other-information" type="text" class="text-field" rows="4" cols="50"></textarea>
+					<p>Note: We can only include one person or animal in your emoji. Also, the artists work with the
+						close-up you send, so we don't allow you to say "give me cool sunglasses." But if you want to,
+						get some cool sunglasses and upload a new close-up, that will work.</p>
+				</div>
+				<div>
+					<p>Upload a close-up!</p>
+					<label for="image-upload"></label>
+					<input  type="file" id="image-upload" accept="image/*">
+				</div>
+				<button id="pay">Pay</button>
+			</form>
+
+		</div>
+	</div>
+
+
+</section>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script charset="UTF-8">
+	// Create an instance of the Stripe object with your publishable API key
+	let stripe;
+	fetch('/public-keys')
+		.then((response) => response.json())
+		.then((data) => {
+			stripe = Stripe(data.key);
+		})
+		.catch((error) => {
+			console.error('Error: ', error);
+		});
+	var checkoutButton = document.getElementById('pay');
+
+	checkoutButton.addEventListener('click', function(e) {
+		e.preventDefault();
+		// Create a new Checkout Session using the server-side endpoint you
+		// created in step 3.
+		fetch('/create-checkout-session', {
+			method: 'POST',
+		})
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(session) {
+				console.log('session', session);
+				console.log('sessionID', session.id);
+				return stripe.redirectToCheckout({ sessionId: session.sessionId });
+			})
+			.then(function(result) {
+				// If `redirectToCheckout` fails due to a browser or network
+				// error, you should display the localized error message to your
+				// customer using `error.message`.
+				if (result.error) {
+					alert(result.error.message);
+				}
+			})
+			.catch(function(error) {
+				console.error('Error:', error);
+			});
+	});
+</script>
 
 </body>
 </html>
